@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curiosity on Mars</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" type="module"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+</head>
+<body>
+    <header><h1>NASA API</h1></header>
+    <main>
+        <!-- MAIN PICTURE -->
+        <section class="astronomy-picture">
+            <h2>Astronomy picture of the day</h2>
+            <article id="main-picture">
+                <h2>Loading Data...</h2>
+            </article>
+        </section>
+
+        <!-- DATI DA MARTE -->
+        <div class="mars-today">
+
+        </div>
+        <section class="mars-data-container">
+            <div id="mars-data"></div>
+        </section>
+
+        <!-- PREVIOUS PICTURES -->
+        <section class="previous-pictures-container">
+            <h2>Previous images</h2>
+            <article class="pictures-container">
+                <h2>Loading Data...</h2>
+
+            </article>
+        </section>
+ 
+        <!-- MODALE -->
+        <div id="picture-details-container">
+            <button id="prev">&#10094;</button>
+            <article class="picture-details">
+                <div class="picture-details-header">
+                    <h2 id="picture-title">Titolo</h2>
+                    <button id="close-button">X</button>
+                </div>
+                <img id="picture-img" src="./mock/SunTriangle_Vanoni_960.jpg" alt="">
+                <p id="picture-description">Descrizione</p>
+                <p id="picture-copyright">Copyright</p>
+            </article>
+            <button id="next">&#10095;</button>
+        </div>
+    </main>
+</body>
+</html>

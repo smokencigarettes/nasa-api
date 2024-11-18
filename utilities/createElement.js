@@ -1,0 +1,1 @@
+export let create = selector => document.createElement(selector);
