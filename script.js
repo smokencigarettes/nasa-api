@@ -97,7 +97,6 @@ function previousPictures(reversedPictures){
   reversedPictures.forEach((picture, index) =>{
     let pictureContainer = create("div");
     pictureContainer.classList.add("picture-container");
-    pictureContainer.setAttribute("data-index", index);
     picturesContainer.append(pictureContainer);
     
     pictureContainer.addEventListener("click", () => {
