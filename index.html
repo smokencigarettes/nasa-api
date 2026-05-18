@@ -12,8 +12,8 @@
     <header><h1>NASA API</h1></header>
     <main>
         <!-- MAIN PICTURE -->
-        <section class="astronomy-picture">
-            <h2>Astronomy picture of the day</h2>
+        <section class="astronomy-picture option-cropped">
+            <h2 id="astronomy-title">Astronomy picture of the day</h2>
             <article id="main-picture">
                 <h2>Loading Data...</h2>
             </article>
@@ -21,7 +21,6 @@
 
         <!-- DATI DA MARTE -->
         <div class="mars-today">
-
         </div>
         <section class="mars-data-container">
             <div id="mars-data"></div>
@@ -45,6 +44,7 @@
                     <button id="close-button">X</button>
                 </div>
                 <img id="picture-img" src="./mock/SunTriangle_Vanoni_960.jpg" alt="">
+                <iframe id="picture-video" src="" frameborder="0" allowfullscreen style="display:none;"></iframe>
                 <p id="picture-description">Descrizione</p>
                 <p id="picture-copyright">Copyright</p>
             </article>

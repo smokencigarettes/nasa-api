@@ -1,6 +1,6 @@
 :root {
-  --primary-dark:#152134;
-  --primary:rgb(43, 48, 150);
+  --primary-dark: #152134;
+  --primary: rgb(43, 48, 150);
 
   --s1: 0.6rem;
   --s2: 1rem;
@@ -8,7 +8,11 @@
   --s4: 3.5rem;
 }
 
-html, body, h1, h2, h3 {
+html,
+body,
+h1,
+h2,
+h3 {
   margin: 0;
   padding: 0;
 }
@@ -24,7 +28,7 @@ header {
   padding: var(--s2);
 }
 
-h2{
+h2 {
   padding: 0.5rem;
 }
 
@@ -35,80 +39,123 @@ h2{
   margin: var(--s4) var(--s2);
   border-radius: var(--s1);
   overflow: hidden;
-} 
-.astronomy-picture > h2{
+}
+
+.astronomy-picture>h2 {
   background-color: var(--primary-dark);
   color: white;
   padding: var(--s2);
 }
-.astronomy-picture img {
+
+.astronomy-picture img,
+.astronomy-picture iframe,
+.astronomy-picture video {
   padding-right: var(--s2);
   max-height: 400px;
   max-width: 50%;
   object-fit: cover;
-} 
+  cursor: zoom-in;
+}
+
 article {
   display: flex;
-} 
+}
+
+/* Layout Responsive */
+@media screen and (max-width: 1102px) {
+  section.astronomy-picture article {
+    flex-direction: column;
+  }
+
+  section.astronomy-picture img,
+  section.astronomy-picture iframe,
+  section.astronomy-picture video {
+    max-width: 100%;
+    width: 100%;
+    padding-right: 0;
+    max-height: 400px;
+  }
+
+  .mars-data-container {
+    padding: var(--s2) var(--s1);
+  }
+  .mars-today {
+    margin: 0 var(--s1);
+  }
+}
+
+/* Immagine Tagliata + Zoom */
+.option-cropped img {
+  max-height: 400px;
+  object-fit: cover;
+  cursor: zoom-in;
+}
+
 .text-container {
   padding: var(--s4) var(--s2);
 }
 
 
 /* DATI DA MARTE */
-.mars-today{
+.mars-today {
   background-color: #E6C4A8;
   margin: 0 var(--s2);
   border-top-left-radius: var(--s1);
   border-top-right-radius: var(--s1);
   overflow: hidden;
 }
-.mars-today > h2{
+
+.mars-today>h2 {
   background-color: #682C05;
   color: white;
   padding: var(--s2);
 }
-.mars-today > p{
+
+.mars-today>p {
   padding: 0 var(--s2)
 }
-.mars-data-container{
+
+.mars-data-container {
   background-color: white;
   margin: 0 var(--s2) var(--s4) var(--s2);
   border-bottom-left-radius: var(--s1);
   border-bottom-right-radius: var(--s1);
   overflow: hidden;
-  
+  padding: var(--s2) var(--s4);
 }
-#mars-data{
+
+#mars-data {
   width: 98%;
   height: 45vh;
 }
 
 
 /* PREVIOUS PICTURES */
-.previous-pictures-container{
+.previous-pictures-container {
   background-color: white;
   margin: 0 var(--s2) var(--s4) var(--s2);
-  /* border-top-left-radius: var(--s1);
-  border-top-right-radius: var(--s1); */
   border-radius: var(--s1);
   overflow: hidden;
 }
-.previous-pictures-container h2{
+
+.previous-pictures-container h2 {
   background-color: var(--primary-dark);
   color: white;
   padding: var(--s2);
 }
+
 .pictures-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 0.1rem;
-} 
+}
+
 .picture-container {
   flex: 0 0 calc(100% / 4 - 0.1rem);
 
-}  
+}
+
 .picture-container img {
   object-fit: cover;
   width: 100%;
@@ -125,12 +172,13 @@ article {
   z-index: 9;
   position: fixed;
   top: 0;
-  background-color: rgba(0,0,0,0.8);
+  background-color: rgba(0, 0, 0, 0.8);
   justify-content: center;
   align-items: center;
 }
 
-#next, #prev{
+#next,
+#prev {
   color: white;
   cursor: pointer;
   background: none;
@@ -143,48 +191,70 @@ article {
   background-color: #575757db;
   color: white;
   width: 90%;
-  /* height: 90vh; */
+  max-width: 800px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   border-radius: 0.5rem;
   overflow: hidden;
-}  
-.picture-details-header{
+}
+
+.picture-details-header {
   background-color: var(--primary-dark);
   display: flex;
   padding: var(--s1);
   width: 100%;
   justify-content: space-between;
-}  
-.picture-details-header h2{
+}
+
+.picture-details-header h2 {
   margin: var(--s1);
-}  
-#close-button{
+}
+
+#close-button {
   border: none;
   background-color: transparent;
   font-weight: bold;
   color: white;
   padding: var(--s1) var(--s3);
   cursor: pointer;
-} 
-#picture-title{
+}
+
+#picture-title {
   padding: 0.5rem;
-} 
-#picture-img{
+}
+
+#picture-img {
   width: 100%;
   max-height: 60vh;
   object-fit: contain;
   padding-top: var(--s1);
-} 
-#picture-description{
+}
+
+#picture-video,
+#picture-video-tag {
+  width: 100%;
+  max-width: 106.6vh;
+  max-height: 60vh;
+  aspect-ratio: 16/9;
+  padding-top: var(--s1);
+  box-sizing: border-box;
+  margin: 0 auto;
+}
+
+#picture-description {
   padding: var(--s1) var(--s2);
 }
 
 
-@media screen and (max-width: 768px){
-  #picture-img{
-  max-height: 47vh;
+@media screen and (max-width: 768px) {
+  #picture-img {
+    max-height: 47vh;
+  }
+  #picture-video,
+  #picture-video-tag {
+    max-width: 83.5vh;
+    max-height: 47vh;
   }
 }
