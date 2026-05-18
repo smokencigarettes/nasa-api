@@ -271,7 +271,7 @@ window.addEventListener("click", (e) =>{
 
 
 // DATI DA MARTE
-let curiosityData = "https://mars.nasa.gov/rss/api/?feed=weather&category=msl&feedtype=json";
+let curiosityData = "https://corsproxy.io/?https://mars.nasa.gov/rss/api/?feed=weather&category=msl&feedtype=json";
 
 let fetchCuriosityData = () =>{
   let data = fetch(curiosityData)
