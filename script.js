@@ -19,6 +19,7 @@ let startMillis = endMillis - daysMillis;
 let start_date = createFormattedDate(startMillis);
 let end_date = createFormattedDate(endMillis);
 
+// let astronomyPictures = "./NASA-API/mock/astronomy-pictures.json";
 let astronomyPictures = `https://api.nasa.gov/planetary/apod?api_key=${apiKey}&start_date=${start_date}&end_date=${end_date}&thumbs=true`;
 
 
@@ -54,6 +55,46 @@ fetchPictures()
     console.log(galleryPictures);
   }
 })
+
+
+
+
+/*
+
+async function fetchValidPictures(startMillis, endMillis) {
+  let start_date = createFormattedDate(startMillis);
+  let end_date = createFormattedDate(endMillis);
+  let apiUrl = `https://api.nasa.gov/planetary/apod?api_key=${apiKey}&start_date=${start_date}&end_date=${end_date}&thumbs=true`;
+
+  try {
+    let response = await fetch(apiUrl);
+    if (!response.ok) {
+      if (response.status === 400) {
+        return fetchValidPictures(startMillis, endMillis - convertDaysInMillis(1)); // Scala indietro di un giorno
+      }
+      throw new Error(`Errore API: ${response.status}`);
+    }
+    return await response.json();
+  } catch (error) {
+    console.error("Errore nel recupero delle immagini:", error);
+    return []; // RESTITUISCE SEMPRE UN ARRAY
+  }
+}
+
+
+fetchValidPictures(startMillis, endMillis).then(pictures => {
+  if (!pictures || pictures.length === 0) {  // Controlla se è vuoto o undefined
+    mainPicture.textContent = "Impossibile recuperare le immagini.";
+    return;
+  }
+  let reversedPictures = [...pictures].reverse();
+  createContainers(reversedPictures[0]);
+  previousPictures(reversedPictures.slice(1));
+  galleryPictures = reversedPictures.slice(1);
+});
+
+*/
+
 
 // MAIN PICTURE
 function createContainers(reversedPictures, container){
@@ -128,6 +169,7 @@ function createContainers(reversedPictures, container){
 
   description.after(copyright);
 }
+
 
 // PREVIOUS PICTURES
 function previousPictures(reversedPictures){
@@ -271,7 +313,7 @@ window.addEventListener("click", (e) =>{
 
 
 // DATI DA MARTE
-let curiosityData = "https://corsproxy.io/?https://mars.nasa.gov/rss/api/?feed=weather&category=msl&feedtype=json";
+let curiosityData = "https://mars.nasa.gov/rss/api/?feed=weather&category=msl&feedtype=json";
 
 let fetchCuriosityData = () =>{
   let data = fetch(curiosityData)
@@ -348,6 +390,7 @@ function myChart(weatherData){
 
   let data = google.visualization.arrayToDataTable(chartData);
 
+  // Usiamo qs per coerenza con il tuo codice originale
   let chart = new google.visualization.LineChart(qs("#mars-data"));
   chart.draw(data, options);
 
